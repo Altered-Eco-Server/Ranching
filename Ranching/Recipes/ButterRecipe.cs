@@ -14,9 +14,9 @@
     using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(RanchingSkill), 4)]
-    public partial class ButterRecipe : RecipeFamily
+    public partial class NewButterRecipe : RecipeFamily
     {
-        public ButterRecipe()
+        public NewButterRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
@@ -33,9 +33,9 @@
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 0.5f;
             this.LaborInCalories = CreateLaborInCaloriesValue(15, typeof(RanchingSkill));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(ButterRecipe), 2, typeof(RanchingSkill));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(NewButterRecipe), 2, typeof(RanchingSkill));
             this.ModsPreInitialize();
-            this.Initialize(Localizer.DoStr("Butter"), typeof(ButterRecipe));
+            this.Initialize(Localizer.DoStr("Butter"), typeof(NewButterRecipe));
             this.ModsPostInitialize();
             CraftingComponent.AddRecipe(typeof(MillObject), this);
         }

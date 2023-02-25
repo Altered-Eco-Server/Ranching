@@ -16,6 +16,7 @@ namespace Eco.Mods.TechTree
 
     [Serialized]
     [LocDisplayName("Feather")]
+    [Tag("Feather", 1)]
     [Weight(50)]
     [Ecopedia("Natural Resources", "Animal", createAsSubPage: true)]
     public partial class FeatherItem : Item

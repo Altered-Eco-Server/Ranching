@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
                     Localizer.DoStr("HatchTurkey"),
                     new IngredientElement[]
                     {
-               new IngredientElement(typeof(EggItem), 2, true),
+               new IngredientElement(typeof(EggItem), 4, typeof(RanchingSkill)),
                     },
                     new CraftingElement[]
                     {

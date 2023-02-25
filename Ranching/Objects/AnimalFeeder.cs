@@ -37,7 +37,6 @@
     [Serialized]
     [RequireComponent(typeof(OnOffComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
-    [RequireComponent(typeof(MinimapComponent))]
     [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(CraftingComponent))]
     [RequireComponent(typeof(PluginModulesComponent))]
@@ -52,7 +51,6 @@
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<MinimapComponent>().SetCategory(Localizer.DoStr("Cooking"));
             this.ModsPostInitialize();
         }
 
@@ -75,22 +73,18 @@
 
     [Serialized]
     [LocDisplayName("Animal Feeder")]
-    [Ecopedia("Housing Objects", "Kitchen", createAsSubPage: true)]
-    [Tag("Housing", 1)]
     [AllowPluginModules(Tags = new[] { "BasicUpgrade" })] //noloc
     public partial class NewAnimalFeederItem : WorldObjectItem<NewAnimalFeederObject>, IPersistentData
     {
         public override LocString DisplayDescription => Localizer.DoStr("A feeder to lure and breed animals. Needs to be inside of a Pen");
-        public override DirectionAxisFlags RequiresSurfaceOnSides { get; } = 0
-                    | DirectionAxisFlags.Down
-                ;
+        public override DirectionAxisFlags RequiresSurfaceOnSides { get; } = 0 | DirectionAxisFlags.Down;
         [Serialized, TooltipChildren] public object PersistentData { get; set; }
     }
 
     [RequiresSkill(typeof(CarpentrySkill), 1)]
-    public partial class AnimalFeederRecipe : RecipeFamily
+    public partial class NewAnimalFeederRecipe : RecipeFamily
     {
-        public AnimalFeederRecipe()
+        public NewAnimalFeederRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
@@ -108,9 +102,9 @@
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 3;
             this.LaborInCalories = CreateLaborInCaloriesValue(500, typeof(CarpentrySkill));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(AnimalFeederRecipe), 2, typeof(CarpentrySkill), typeof(CarpentryFocusedSpeedTalent), typeof(CarpentryParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(NewAnimalFeederRecipe), 2, typeof(CarpentrySkill), typeof(CarpentryFocusedSpeedTalent), typeof(CarpentryParallelSpeedTalent));
             this.ModsPreInitialize();
-            this.Initialize(Localizer.DoStr("Animal Feeder"), typeof(AnimalFeederRecipe));
+            this.Initialize(Localizer.DoStr("Animal Feeder"), typeof(NewAnimalFeederRecipe));
             this.ModsPostInitialize();
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }

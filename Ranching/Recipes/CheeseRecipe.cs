@@ -17,9 +17,9 @@ namespace Eco.Mods.TechTree
     using Eco.Core.Controller;
 
     [RequiresSkill(typeof(RanchingSkill), 5)]
-    public partial class CheeseRecipe : RecipeFamily
+    public partial class NewCheeseRecipe : RecipeFamily
     {
-        public CheeseRecipe()
+        public NewCheeseRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
@@ -28,7 +28,7 @@ namespace Eco.Mods.TechTree
                 new List<IngredientElement>
                 {
                     new IngredientElement(typeof(MilkItem), 4, typeof(RanchingSkill)),
-                    new IngredientElement(typeof(ClothItem), 1, typeof(RanchingSkill)),
+                    new IngredientElement(typeof(ClothItem), 1, true),
                 },
                 new List<CraftingElement>
                 {
@@ -38,9 +38,9 @@ namespace Eco.Mods.TechTree
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 0.5f;
             this.LaborInCalories = CreateLaborInCaloriesValue(15, typeof(RanchingSkill));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(CheeseRecipe), 2, typeof(RanchingSkill));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(NewCheeseRecipe), 2, typeof(RanchingSkill));
             this.ModsPreInitialize();
-            this.Initialize(Localizer.DoStr("Cheese"), typeof(CheeseRecipe));
+            this.Initialize(Localizer.DoStr("Cheese"), typeof(NewCheeseRecipe));
             this.ModsPostInitialize();
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }

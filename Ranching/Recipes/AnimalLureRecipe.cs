@@ -15,10 +15,10 @@
 
     /// <summary>Auto-generated class. Don't modify it! All your changes will be wiped with next update! Use Mods* partial methods instead for customization.</summary>
     [RequiresSkill(typeof(FarmingSkill), 4)]
-    public partial class AnimalLureRecipe :
+    public partial class AnimalsLureRecipe :
         RecipeFamily
     {
-        public AnimalLureRecipe()
+        public AnimalsLureRecipe()
         {
             this.Recipes = new List<Recipe>
             {
@@ -39,9 +39,9 @@
             };
             this.ExperienceOnCraft = 1;
             this.LaborInCalories = CreateLaborInCaloriesValue(40, typeof(FarmingSkill));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(AnimalLureRecipe), 4, typeof(FarmingSkill), typeof(FarmingFocusedSpeedTalent), typeof(FarmingParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(AnimalsLureRecipe), 4, typeof(FarmingSkill), typeof(FarmingFocusedSpeedTalent), typeof(FarmingParallelSpeedTalent));
             this.ModsPreInitialize();
-            this.Initialize(Localizer.DoStr("Animal Lure"), typeof(AnimalLureRecipe));
+            this.Initialize(Localizer.DoStr("Animal Lure"), typeof(AnimalsLureRecipe));
             this.ModsPostInitialize();
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }

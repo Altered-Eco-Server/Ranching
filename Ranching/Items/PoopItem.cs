@@ -16,6 +16,7 @@ namespace Eco.Mods.TechTree
 
     [Serialized]
     [LocDisplayName("Manure")]
+    [Tag("Manure", 1)]
     [Weight(50)]
     [Ecopedia("Natural Resources", "Animal", createAsSubPage: true)]
     public partial class PoopItem : Item

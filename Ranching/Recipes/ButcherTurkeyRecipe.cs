@@ -19,10 +19,10 @@ namespace Eco.Mods.TechTree
 
     /// <summary>Auto-generated class. Don't modify it! All your changes will be wiped with next update! Use Mods* partial methods instead for customization.</summary>
     [RequiresSkill(typeof(ButcherySkill), 2)]
-    public partial class ButcherDomesticatedTurkeyRecipe :
+    public partial class NewButcherDomesticatedTurkeyRecipe :
         RecipeFamily
     {
-        public ButcherDomesticatedTurkeyRecipe()
+        public NewButcherDomesticatedTurkeyRecipe()
         {
             this.Recipes = new List<Recipe>
             {
@@ -43,9 +43,9 @@ namespace Eco.Mods.TechTree
             };
             this.ExperienceOnCraft = 5;
             this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(ButcherySkill));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(ButcherDomesticatedTurkeyRecipe), 1, typeof(ButcherySkill), typeof(ButcheryFocusedSpeedTalent), typeof(ButcheryParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(NewButcherDomesticatedTurkeyRecipe), 1, typeof(ButcherySkill), typeof(ButcheryFocusedSpeedTalent), typeof(ButcheryParallelSpeedTalent));
             this.ModsPreInitialize();
-            this.Initialize(Localizer.DoStr("Butcher Farm Raised Turkey"), typeof(ButcherDomesticatedTurkeyRecipe));
+            this.Initialize(Localizer.DoStr("Butcher Farm Raised Turkey"), typeof(NewButcherDomesticatedTurkeyRecipe));
             this.ModsPostInitialize();
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }

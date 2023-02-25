@@ -168,10 +168,7 @@ namespace Eco.Mods.TechTree
     public partial class BigPenItem : WorldObjectItem<BigPenObject>
     {
         public override LocString DisplayDescription => Localizer.DoStr("A pen for Bison and sheep. Needs to be cleaned of manure regularly");
-        public override DirectionAxisFlags RequiresSurfaceOnSides { get; } = 0
-                    | DirectionAxisFlags.Down
-                ;
-
+        public override DirectionAxisFlags RequiresSurfaceOnSides { get; } = 0 | DirectionAxisFlags.Down;
     }
     [RequiresSkill(typeof(CarpentrySkill), 1)]
     public partial class BigPenRecipe : RecipeFamily

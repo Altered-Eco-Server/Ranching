@@ -21,7 +21,6 @@
     public partial class NewAnimalFeederObject : WorldObject
     {
         private bool animalsInPen;
-        private List<WorldObject> pensInRange = new();
         protected override void PostInitialize()
         {
             base.PostInitialize();
@@ -43,34 +42,21 @@
 
         public bool StatusTest(Vector3i pos)
         {
-            LayerPosition layerPos = LayerPosition.FromWorldPosition(pos.XZ, 1);
-            WorldLayer fertile = WorldLayerManager.Obj.GetLayer(LayerNames.FertileGround);
-            WorldLayer building = WorldLayerManager.Obj.GetLayer(LayerNames.ConstructedSpace);
-            //if (fertile.GetValue(layerPos) >= 0.5f && building.GetValue(layerPos) <= 0.5f && PenDetected()) return true;
             if (PenDetected()) return true;
             return false;
         }
 
         public bool PenDetected()
         {
-            pensInRange.Clear();
-            bool is_Detected = new();
-            foreach (WorldObject worldObject in ServiceHolder<IWorldObjectManager>.Obj.All)
-            {
-                var is_BigPen = worldObject.GetType() == typeof(BigPenObject);
-                var distance = Vector3i.Distance(this.Position.XYZi(), worldObject.Position.XYZi());
-                if (is_BigPen && distance < 4)
-                {
-                    pensInRange.Add(worldObject);
-                    animalsInPen = !worldObject.GetComponent<PublicStorageComponent>().Inventory.IsEmpty;
-                }
-            }
+            bool pen_Detected = false;
+            var pensInRange = ServiceHolder<IWorldObjectManager>.Obj.All.Where(w => w.GetType() == typeof(BigPenObject) && Vector3i.Distance(this.Position.XYZi(), w.Position.XYZi()) < 4).ToList();
+
             if (pensInRange.Count > 0)
             {
-                is_Detected = true;
+                animalsInPen = !pensInRange[0].GetComponent<PublicStorageComponent>().Inventory.IsEmpty;
+                pen_Detected = true;
             }
-            else is_Detected = false;
-            return is_Detected;
+            return pen_Detected;
         }
     }
 }

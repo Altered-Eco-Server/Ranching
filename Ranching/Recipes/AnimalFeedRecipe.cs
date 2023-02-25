@@ -14,10 +14,10 @@
     using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(RanchingSkill), 1)]
-    public partial class AnimalFeedRecipe :
+    public partial class AnimalFeedsRecipe :
         RecipeFamily
     {
-        public AnimalFeedRecipe()
+        public AnimalFeedsRecipe()
         {
             this.Recipes = new List<Recipe>
             {
@@ -36,9 +36,9 @@
             };
             this.ExperienceOnCraft = 1;
             this.LaborInCalories = CreateLaborInCaloriesValue(40, typeof(RanchingSkill));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(AnimalFeedRecipe), 4, typeof(RanchingSkill));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(AnimalFeedsRecipe), 4, typeof(RanchingSkill));
             this.ModsPreInitialize();
-            this.Initialize(Localizer.DoStr("Animal Feed"), typeof(AnimalFeedRecipe));
+            this.Initialize(Localizer.DoStr("Animal Feed"), typeof(AnimalFeedsRecipe));
             this.ModsPostInitialize();
             CraftingComponent.AddRecipe(typeof(NewAnimalFeederObject), this);
         }

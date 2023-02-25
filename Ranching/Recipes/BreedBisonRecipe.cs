@@ -19,10 +19,10 @@ namespace Eco.Mods.TechTree
 
     /// <summary>Auto-generated class. Don't modify it! All your changes will be wiped with next update! Use Mods* partial methods instead for customization.</summary>
     [RequiresSkill(typeof(RanchingSkill), 6)]
-    public partial class BreedBisonRecipe :
+    public partial class NewBreedBisonRecipe :
         RecipeFamily
     {
-        public BreedBisonRecipe()
+        public NewBreedBisonRecipe()
         {
             this.Recipes = new List<Recipe>
             {
@@ -42,9 +42,9 @@ namespace Eco.Mods.TechTree
             };
             this.ExperienceOnCraft = 7;
             this.LaborInCalories = CreateLaborInCaloriesValue(120, typeof(RanchingSkill));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(BreedBisonRecipe), 5, typeof(RanchingSkill));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(NewBreedBisonRecipe), 5, typeof(RanchingSkill));
             this.ModsPreInitialize();
-            this.Initialize(Localizer.DoStr("Breed Bison"), typeof(BreedBisonRecipe));
+            this.Initialize(Localizer.DoStr("Breed Bison"), typeof(NewBreedBisonRecipe));
             this.ModsPostInitialize();
             CraftingComponent.AddRecipe(typeof(NewAnimalFeederObject), this);
         }
